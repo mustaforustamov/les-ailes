@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <title>Les Ailes Menyu</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #d1002c;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      padding: 15px;
+      text-align: center;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+    }
+
+    .card h3 {
+      margin: 10px 0;
+      color: #333;
+    }
+
+    .card p {
+      color: #666;
+    }
+
+    .card button {
+      background-color: #d1002c;
+      color: white;
+      border: none;
+      font-size: 22px;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .promo {
+      background: #ffeaea;
+      padding: 10px;
+      text-align: center;
+      color: #d1002c;
+      font-weight: bold;
+      border-radius: 10px;
+      margin: 20px auto;
+      max-width: 300px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Les Ailes Menyu</h1>
+
+  <div class="promo">🎁 1+1 Aksiya: Har bir setdan 2ta oling, 1 tasi bepul!</div>
+
+  <div class="menu-grid">
+    <div class="card">
+      <h3>Snek Set</h3>
+      <p>79 000 so'm</p>
+      <button onclick="buySet('snek')">+</button>
+    </div>
+
+    <div class="card">
+      <h3>Klassik Set</h3>
+      <p>34 000 so'm</p>
+      <button onclick="buySet('klassik')">+</button>
+    </div>
+
+    <div class="card">
+      <h3>Big Set</h3>
+      <p>62 000 so'm</p>
+      <button onclick="buySet('big')">+</button>
+    </div>
+
+    <div class="card">
+      <h3>Kombo Set</h3>
+      <p>120 000 so'm</p>
+      <button onclick="buySet('kombo')">+</button>
+    </div>
+
+    <div class="card">
+      <h3>2Do‘st Set</h3>
+      <p>79 000 so'm</p>
+      <button onclick="buySet('dost2')">+</button>
+    </div>
+
+    <div class="card">
+      <h3>Skul Set</h3>
+      <p>55 000 so'm</p>
+      <button onclick="buySet('skul')">+</button>
+    </div>
+
+    <div class="card">
+      <h3>Kids Set</h3>
+      <p>29 000 so'm</p>
+      <button onclick="buySet('kids')">+</button>
+    </div>
+
+    <div class="card">
+      <h3>Royal Set</h3>
+      <p>89 000 so'm</p>
+      <button onclick="buySet('royal')">+</button>
+    </div>
+
+    <div class="card">
+      <h3>Lavash Set</h3>
+      <p>38 000 so'm</p>
+      <button onclick="buySet('lavash')">+</button>
+    </div>
+
+    <div class="card">
+      <h3>Burger Set</h3>
+      <p>42 000 so'm</p>
+      <button onclick="buySet('burger')">+</button>
+    </div>
+
+    <div class="card">
+      <h3>Super Set</h3>
+      <p>109 000 so'm</p>
+      <button onclick="buySet('super')">+</button>
+    </div>
+
+    <div class="card">
+      <h3>Mix Set</h3>
+      <p>67 000 so'm</p>
+      <button onclick="buySet('mix')">+</button>
+    </div>
+  </div>
+
+  <script>
+    function buySet(setName) {
+      let price = 0;
+
+      // switch case orqali narxni aniqlash
+      switch (setName) {
+        case 'snek':
+          price = 79000; break;
+        case 'klassik':
+          price = 34000; break;
+        case 'big':
+          price = 62000; break;
+        case 'kombo':
+          price = 120000; break;
+        case 'dost2':
+          price = 79000; break;
+        case 'skul':
+          price = 55000; break;
+        case 'kids':
+          price = 29000; break;
+        case 'royal':
+          price = 89000; break;
+        case 'lavash':
+          price = 38000; break;
+        case 'burger':
+          price = 42000; break;
+        case 'super':
+          price = 109000; break;
+        case 'mix':
+          price = 67000; break;
+        default:
+          alert("❌ Noto‘g‘ri set tanlandi.");
+          return;
+      }
+
+      // miqdorni so‘rash
+      const quantity = parseInt(prompt("Nechta olmoqchisiz?"));
+
+      if (isNaN(quantity) || quantity <= 0) {
+        alert("⚠️ To‘g‘ri miqdor kiriting.");
+        return;
+      }
+
+      const total = price * quantity;
+
+      const confirmBuy = confirm(`Umumiy narx: ${total.toLocaleString()} so'm\nTasdiqlaysizmi?`);
+
+      if (confirmBuy) {
+        alert("✅ Xaridingiz qabul qilindi!");
+      } else {
+        alert("❌ Xarid bekor qilindi.");
+      }
+    }
+  </script>
+
+</body>
+</html>
